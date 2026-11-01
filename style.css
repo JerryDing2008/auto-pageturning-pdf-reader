@@ -1,0 +1,573 @@
+:root{
+
+    --bg:#0b1020;
+
+    --card-bg:
+        rgba(255,255,255,.08);
+
+    --glass-bg:
+        rgba(20,20,20,.82);
+
+    --glass-border:
+        rgba(255,255,255,.08);
+
+    --text:#ffffff;
+
+    --subtext:
+        rgba(255,255,255,.72);
+
+    --primary:#4f7cff;
+}
+
+/* ======================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+
+    font-family:
+        Inter,
+        "SF Pro Display",
+        "PingFang SC",
+        sans-serif;
+}
+
+/* ======================= */
+/* 首页 */
+/* ======================= */
+
+#homeScreen{
+
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:30px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #4356ff,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            #00c2ff,
+            transparent 35%
+        ),
+
+        #080c15;
+}
+
+/* ======================= */
+
+.glass-card{
+
+    width:720px;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    padding:40px;
+
+    border-radius:32px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    backdrop-filter:
+        blur(40px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    box-shadow:
+        0 20px 80px
+        rgba(0,0,0,.35);
+
+    color:white;
+}
+
+/* ======================= */
+
+.glass-card h1{
+
+    text-align:center;
+
+    font-size:42px;
+
+    margin-bottom:12px;
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:var(--subtext);
+
+    margin-bottom:30px;
+}
+
+/* ======================= */
+/* 上传区域 */
+/* ======================= */
+
+.upload-area{
+
+    height:220px;
+
+    border-radius:24px;
+
+    border:
+        2px dashed
+        rgba(255,255,255,.18);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    background:
+        rgba(255,255,255,.03);
+}
+
+.upload-area:hover{
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(255,255,255,.35);
+
+    background:
+        rgba(255,255,255,.06);
+}
+
+.upload-icon{
+
+    font-size:58px;
+}
+
+.upload-title{
+
+    font-size:24px;
+
+    font-weight:600;
+
+    margin-top:10px;
+}
+
+.upload-desc{
+
+    margin-top:8px;
+
+    color:var(--subtext);
+}
+
+/* ======================= */
+/* 设置 */
+/* ======================= */
+
+.setting-block{
+
+    margin-top:25px;
+}
+
+.setting-block label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:var(--subtext);
+}
+
+.slider-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.slider-row input{
+
+    flex:1;
+}
+
+#intervalLabel{
+
+    width:60px;
+
+    text-align:right;
+}
+
+/* ======================= */
+/* 按钮 */
+/* ======================= */
+
+.primary-btn{
+
+    width:100%;
+
+    margin-top:25px;
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:16px;
+
+    font-size:18px;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5f7cff,
+            #2d67ff
+        );
+
+    transition:.25s;
+}
+
+.primary-btn:hover{
+
+    transform:
+        translateY(-2px);
+}
+
+/* ======================= */
+/* 预设库 */
+/* ======================= */
+
+.library-section{
+
+    margin-top:35px;
+}
+
+.section-title{
+
+    font-size:20px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+}
+
+#libraryList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+.empty-library{
+
+    color:var(--subtext);
+}
+
+/* 一个预设 */
+
+.library-item{
+
+    padding:16px;
+
+    border-radius:16px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid
+        rgba(255,255,255,.05);
+}
+
+.library-name{
+
+    font-weight:600;
+
+    margin-bottom:6px;
+}
+
+.library-info{
+
+    color:var(--subtext);
+
+    font-size:14px;
+}
+
+.library-actions{
+
+    margin-top:12px;
+
+    display:flex;
+
+    gap:8px;
+}
+
+/* ======================= */
+/* 阅读器 */
+/* ======================= */
+
+#readerScreen{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:black;
+}
+
+/* ======================= */
+
+#viewer{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+#pdfCanvas{
+
+    max-width:100%;
+    max-height:100%;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.5);
+}
+
+/* ======================= */
+/* 翻页区域 */
+/* ======================= */
+
+.zone{
+
+    position:absolute;
+
+    top:0;
+
+    width:50%;
+
+    height:100%;
+
+    z-index:1;
+}
+
+#leftZone{
+    left:0;
+}
+
+#rightZone{
+    right:0;
+}
+
+/* ======================= */
+/* 工具栏 */
+/* ======================= */
+
+#toolbar{
+
+    position:absolute;
+
+    left:50%;
+    top:20px;
+
+    transform:
+        translateX(-50%);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:
+        12px 16px;
+
+    border-radius:22px;
+
+    background:
+        var(--glass-bg);
+
+    backdrop-filter:
+        blur(25px);
+
+    border:
+        1px solid
+        var(--glass-border);
+
+    z-index:9999;
+
+    transition:
+        opacity .3s;
+}
+
+#toolbar button{
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:
+        10px 14px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+#toolbar button:hover{
+
+    background:
+        rgba(255,255,255,.16);
+}
+
+#toolbar input{
+
+    width:80px;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:10px;
+
+    text-align:center;
+
+    background:
+        rgba(255,255,255,.10);
+
+    color:white;
+}
+
+#pageInfo{
+
+    min-width:80px;
+
+    text-align:center;
+
+    color:white;
+}
+
+/* ======================= */
+/* toast */
+/* ======================= */
+
+#toast{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    background:
+        rgba(20,20,20,.85);
+
+    color:white;
+
+    padding:
+        18px 28px;
+
+    border-radius:
+        999px;
+
+    display:none;
+
+    z-index:10000;
+}
+
+/* ======================= */
+/* 自动隐藏工具栏 */
+/* ======================= */
+
+.hide-ui #toolbar{
+
+    opacity:0;
+
+    pointer-events:none;
+}
+
+/* ======================= */
+/* 手机 */
+/* ======================= */
+
+@media(max-width:768px){
+
+    .glass-card{
+
+        width:95%;
+
+        padding:25px;
+    }
+
+    .glass-card h1{
+
+        font-size:28px;
+    }
+
+    .upload-area{
+
+        height:180px;
+    }
+
+    #toolbar{
+
+        width:95%;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+    #toolbar button{
+
+        font-size:14px;
+    }
+}

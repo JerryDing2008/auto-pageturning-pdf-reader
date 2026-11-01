@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Liquid PDF Reader</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- ===================== -->
+<!-- 首页 -->
+<!-- ===================== -->
+
+<div id="homeScreen">
+
+    <div class="glass-card">
+
+        <h1>
+            Auto page-turning Pdf Reader
+        </h1>
+
+        <p class="subtitle">
+            
+        </p>
+
+        <!-- 导入区域 -->
+
+        <div
+            id="uploadArea"
+            class="upload-area">
+
+            <input
+                id="pdfFile"
+                type="file"
+                accept=".pdf"
+                hidden>
+
+            <div class="upload-icon">
+                📄
+            </div>
+
+            <div class="upload-title">
+                导入新的 PDF
+            </div>
+
+            <div
+                id="selectedFile"
+                class="upload-desc">
+
+                点击或拖拽 PDF 文件
+
+            </div>
+
+        </div>
+
+        <!-- 默认时间 -->
+
+        <div class="setting-block">
+
+            <label>
+                默认自动翻页时间
+            </label>
+
+            <div class="slider-row">
+
+                <input
+                    id="defaultInterval"
+                    type="range"
+                    min="1"
+                    max="60"
+                    value="10">
+
+                <span id="intervalLabel">
+
+                    10秒
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <button
+            id="startBtn"
+            class="primary-btn">
+
+            开始阅读
+
+        </button>
+
+        <!-- 我的预设 -->
+
+        <div class="library-section">
+
+            <div class="section-title">
+
+                我的预设
+
+            </div>
+
+            <div id="libraryList">
+
+                <div class="empty-library">
+
+                    还没有保存任何预设
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ===================== -->
+<!-- 阅读器 -->
+<!-- ===================== -->
+
+<div id="readerScreen">
+
+    <!-- PDF -->
+
+    <div id="viewer">
+
+        <canvas id="pdfCanvas"></canvas>
+
+    </div>
+
+    <!-- 左侧翻页 -->
+
+    <div
+        id="leftZone"
+        class="zone">
+    </div>
+
+    <!-- 右侧翻页 -->
+
+    <div
+        id="rightZone"
+        class="zone">
+    </div>
+
+    <!-- ================= -->
+    <!-- 工具栏 -->
+    <!-- ================= -->
+
+    <div id="toolbar">
+
+        <!-- 返回 -->
+
+        <button id="backBtn">
+
+            ← 首页
+
+        </button>
+
+        <!-- 当前页 -->
+
+        <span id="pageInfo">
+
+            1 / 1
+
+        </span>
+
+        <!-- 当前页时间 -->
+
+        <input
+            id="pageTime"
+            type="number"
+            min="1">
+
+        <button
+            id="savePageTimeBtn">
+
+            保存页时间
+
+        </button>
+
+        <!-- 保存预设 -->
+
+        <button
+            id="savePresetBtn">
+
+            💾 保存预设
+
+        </button>
+
+        <!-- 重新开始 -->
+
+        <button
+            id="restartBtn">
+
+            ↺ 重新开始
+
+        </button>
+
+        <!-- 自动翻页 -->
+
+        <button
+            id="autoBtn">
+
+            ⏸ 暂停
+
+        </button>
+
+        <!-- 全屏 -->
+
+        <button
+            id="fullscreenBtn">
+
+            ⛶ 全屏
+
+        </button>
+
+    </div>
+
+    <!-- ================= -->
+    <!-- Toast -->
+    <!-- ================= -->
+
+    <div id="toast">
+
+        已保存
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
