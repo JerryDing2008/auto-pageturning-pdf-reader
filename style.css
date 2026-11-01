@@ -75,7 +75,10 @@ body{
 
 .glass-card{
 
-    width:1000px;
+    width:min(
+        1000px,
+        95vw
+    );
 
     max-height:90vh;
 
@@ -108,16 +111,41 @@ body{
 
     text-align:center;
 
-    font-size:42px;
+    font-size:48px;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
 
     margin-bottom:12px;
+
+    color:white;
+
+    text-shadow:
+        0 4px 20px
+        rgba(
+            255,
+            255,
+            255,
+            .15
+        );
 }
 
 .subtitle{
 
     text-align:center;
 
-    color:var(--subtext);
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .65
+        );
+
+    font-size:15px;
+
+    letter-spacing:.5px;
 
     margin-bottom:30px;
 }
@@ -331,6 +359,102 @@ body{
     display:flex;
 
     gap:8px;
+}
+
+.library-actions button{
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:10px 16px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.25s;
+
+    color:white;
+}
+
+/* 打开 */
+
+.library-actions button:first-child{
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f7cff,
+            #2d67ff
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            79,
+            124,
+            255,
+            .25
+        );
+}
+
+.library-actions button:first-child:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(
+            79,
+            124,
+            255,
+            .35
+        );
+}
+
+/* 删除 */
+
+.library-actions button:last-child{
+
+    background:
+        rgba(
+            255,
+            80,
+            80,
+            .18
+        );
+
+    color:
+        rgb(
+            255,
+            120,
+            120
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            80,
+            80,
+            .25
+        );
+}
+
+.library-actions button:last-child:hover{
+
+    background:
+        rgba(
+            255,
+            80,
+            80,
+            .28
+        );
+
+    transform:
+        translateY(-2px);
 }
 
 /* ======================= */
@@ -549,7 +673,15 @@ body{
 
     .glass-card h1{
 
-        font-size:28px;
+        font-family:
+            "Outfit",
+            sans-serif;
+
+        font-size:50px;
+
+        font-weight:800;
+
+        letter-spacing:-1px;
     }
 
     .upload-area{
@@ -570,4 +702,68 @@ body{
 
         font-size:14px;
     }
+}
+
+/* ======================= */
+/* Glass Scrollbar */
+/* ======================= */
+
+.glass-card::-webkit-scrollbar {
+
+    width: 8px;
+}
+
+.glass-card::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+.glass-card::-webkit-scrollbar-thumb {
+
+    border-radius: 999px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.18
+        );
+
+    border:
+        2px solid transparent;
+
+    background-clip:
+        padding-box;
+}
+
+.glass-card::-webkit-scrollbar-thumb:hover {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.32
+        );
+
+    background-clip:
+        padding-box;
+}
+
+/* Firefox */
+
+.glass-card {
+
+    scrollbar-width:
+        thin;
+
+    scrollbar-color:
+        rgba(
+            255,
+            255,
+            255,
+            .25
+        )
+        transparent;
 }
