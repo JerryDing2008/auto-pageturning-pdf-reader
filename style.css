@@ -504,11 +504,11 @@ body{
 
     position:absolute;
 
-    top:0;
+    top:80px;
 
     width:50%;
 
-    height:100%;
+    height:calc(100% - 80px);
 
     z-index:1;
 }
@@ -766,4 +766,17 @@ body{
             .25
         )
         transparent;
+}
+#topGestureZone{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:80px;
+
+    z-index:5000;
 }

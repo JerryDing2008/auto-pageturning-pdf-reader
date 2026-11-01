@@ -637,18 +637,38 @@ async function renderPage(pageNum){
 
             window.innerHeight /
             viewport.height
-        ) * 0.95;
+        ) * 0.98;
 
     const fitted =
         page.getViewport({
             scale
         });
 
+    const pixelRatio =
+        window.devicePixelRatio || 1;
+
     canvas.width =
-        fitted.width;
+        fitted.width *
+        pixelRatio;
 
     canvas.height =
-        fitted.height;
+        fitted.height *
+        pixelRatio;
+
+    canvas.style.width =
+        fitted.width + "px";
+
+    canvas.style.height =
+        fitted.height + "px";
+
+    ctx.setTransform(
+        pixelRatio,
+        0,
+        0,
+        pixelRatio,
+        0,
+        0
+    );
 
     await page.render({
 
@@ -1150,3 +1170,44 @@ window.addEventListener(
     }
 
 );
+
+let toolbarTimer;
+
+function showToolbar(){
+
+    toolbar.style.opacity = 1;
+
+    toolbar.style.pointerEvents =
+        "auto";
+
+    clearTimeout(
+        toolbarTimer
+    );
+
+    toolbarTimer =
+        setTimeout(
+
+            hideToolbar,
+
+            3000
+
+        );
+}
+
+function hideToolbar(){
+
+    toolbar.style.opacity = 0;
+
+    toolbar.style.pointerEvents =
+        "none";
+}
+
+document
+.getElementById(
+    "topGestureZone"
+)
+.addEventListener(
+    "click",
+    showToolbar
+);
+
